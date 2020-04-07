@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:text="${name}"></div>
+
+    <!--测试循环-->
+    <table>
+        <!-- <c:foreach items="${arrayList}" var = "arry">-->
+        <tr th:each="arry,stat: ${arrayList}">
+            <td th:text="${arry}"></td>
+            <td th:text="${stat.index}"></td>
+        </tr>
+    </table>
+
+    <span th:if="${age}>=18" th:text="good"></span>
+    <span th:text="${age}>=18?'8888':'0000'"></span>
+    <div th:text="${session.userName}"> </div>
+    <div th:include="itemInner"/>
+    <p th:utext="${gname}">color</p>
+<!--<a th:href="@{http://list.gmall.com/list.html?category1Id={category1Id}(category1Id=${categoryView.category1Id})}" th:text="${categoryView.category1Name}">手机、数码、通讯</a>
+-->
+    <a th:href="@{http://localhost:8080/list.html?category1Id={category1Id}(category1Id=${category1Id})}">点我带你飞</a>
+</body>
+</html>
